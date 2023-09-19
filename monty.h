@@ -3,7 +3,17 @@
 
 /** Headers **/
 
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <string.h>
+#include <stdarg.h>
 
+#define DELIM " \t\n"
 /** Data Strutures **/
 
 /**
@@ -22,7 +32,7 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-
+extern stack_t *head;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -38,5 +48,21 @@ typedef struct instruction_s
 } instruction_t;
 
 /** Function prototypes **/
+stack_t *add_node(stack_t **head, int n);
+int delete_node(stack_t **head, unsigned int index);
+void print_top(stack_t *head);
+void _swap_node(stack_t **head, unsigned int);
+size_t stack_len(stack_t *head);
 
+void get_opcode(char **opcode_read, unsigned int);
+
+void pop(stack_t **head, unsigned int line_number);
+void pint(stack_t **head, unsigned int line_number);
+void swap(stack_t **head, unsigned int line_number);
+void pall(stack_t **head, unsigned int line_number);
+void push(stack_t **head, int operand);
+
+void free_list(stack_t *head);
+char **tokenize(char *str, const char *delim);
+void free_grid(char **grid);
 #endif

@@ -4,7 +4,6 @@
  * _isdigit - checks leading character of operand read
  * @s: leading character of operand read
  * Return: 1 if true else 0
- *
  */
 int _isdigit(char s)
 {

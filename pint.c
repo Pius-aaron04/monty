@@ -16,6 +16,7 @@ stack_t *add_node(stack_t **head, int n)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_grid(opcode_read);
 		free_list(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -88,6 +89,7 @@ void _swap_node(stack_t **head, unsigned int line_number)
 	if (stack_len(*head) < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		free_grid(opcode_read);
 		free_list(*head);
 		exit(EXIT_FAILURE);
 	}

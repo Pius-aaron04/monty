@@ -1,16 +1,18 @@
 #include "monty.h"
 
-stack_t *head = NULL;
+char **opcode_read = NULL;
 
 /**
  * execute_op - reads and execute opcode
  * @file: file  stream
  * @argv: opcode command
+ * @head: pointer to list head
  */
 
-void execute_op(FILE *file, char **argv)
+void execute_op(FILE *file, stack_t **head)
 {
 	char line[1024];
+	char ***argv = &opcode_read;
 	unsigned int line_number = 0;
 
 	while (fgets(line, sizeof(line), file) != NULL)
@@ -18,12 +20,19 @@ void execute_op(FILE *file, char **argv)
 		if (strlen(line) <= 1 || strspn(line, " \t\n")
 				== (size_t)strlen(line) || line[0] == '#')
 			continue;
-		argv = tokenize(line, DELIM);
+		*argv = tokenize(line, DELIM);
 		line_number++;
-		get_opcode(argv, line_number);
-		free_grid(argv);
+		if (*argv == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			free_grid(*argv);
+			free_list(*head);
+			exit(EXIT_FAILURE);
+		}
+		get_opcode(head, line_number);
+		free_grid(*argv);
 	}
-
+	free_list(*head);
 }
 
 /**
@@ -35,6 +44,7 @@ void execute_op(FILE *file, char **argv)
 
 int main(int ac, char **argv)
 {
+	stack_t *head = NULL;
 	FILE *file;
 
 	if (ac != 2)
@@ -50,7 +60,7 @@ int main(int ac, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	execute_op(file, argv);
+	execute_op(file, &head);
 	fclose(file);
 	return (EXIT_SUCCESS);
 }

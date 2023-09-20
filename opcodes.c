@@ -5,11 +5,19 @@
  * push - push integer to the top of the stack
  * @head: pointer to stack head
  * @operand: integer to push
+ * @line_number: command line number
  */
 
-void push(stack_t **head, int operand)
+void push(stack_t **head, char *operand, unsigned int line_number)
 {
-	add_node(head, operand);
+	if (!_isdigit(*operand))
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_grid(opcode_read);
+		free_list(*head);
+		exit(EXIT_FAILURE);
+	}
+	add_node(head, atoi(operand));
 }
 
 
@@ -40,9 +48,10 @@ void pall(stack_t **head, unsigned int line_number)
 
 void pint(stack_t **head, unsigned int line_number)
 {
-	if (head == NULL)
+	if (*head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		free_grid(opcode_read);
 		free_list(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -61,6 +70,7 @@ void pop(stack_t **head, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack",
 				line_number);
+		free_grid(opcode_read);
 		free_list(*head);
 		exit(EXIT_FAILURE);
 	}

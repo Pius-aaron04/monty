@@ -32,7 +32,7 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-extern stack_t *head;
+extern char **opcode_read;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -54,15 +54,16 @@ void print_top(stack_t *head);
 void _swap_node(stack_t **head, unsigned int);
 size_t stack_len(stack_t *head);
 
-void get_opcode(char **opcode_read, unsigned int);
+void get_opcode(stack_t **head, unsigned int);
 
 void pop(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void pall(stack_t **head, unsigned int line_number);
-void push(stack_t **head, int operand);
+void push(stack_t **head, char *operand, unsigned int line_number);
 
 void free_list(stack_t *head);
 char **tokenize(char *str, const char *delim);
 void free_grid(char **grid);
+int _isdigit(char s);
 #endif

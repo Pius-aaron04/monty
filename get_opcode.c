@@ -23,11 +23,12 @@ void get_opcode(stack_t **head, unsigned int line_number)
 {
 	int l = 0;
 	instruction_t opcodes[] = {
+		{"nop", nop},
 		{"pall", pall},
 		{"pint", pint}, {"swap", swap},
 		{"pop", pop}};
 
-	while (l < 4)
+	while (l < 5)
 	{
 		if (strcmp((const char *)opcode_read[0], "push") == 0)
 		{

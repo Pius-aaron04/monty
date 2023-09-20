@@ -61,6 +61,7 @@ void pint(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void pall(stack_t **head, unsigned int line_number);
 void push(stack_t **head, char *operand, unsigned int line_number);
+void nop(stack_t **head, unsigned int line_number);
 
 void free_list(stack_t *head);
 char **tokenize(char *str, const char *delim);

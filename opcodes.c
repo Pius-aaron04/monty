@@ -68,7 +68,7 @@ void pop(stack_t **head, unsigned int line_number)
 {
 	if (delete_node(head, 0) == -1)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack",
+		fprintf(stderr, "L%d: can't pop an empty stack\n",
 				line_number);
 		free_grid(opcode_read);
 		free_list(*head);

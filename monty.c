@@ -11,7 +11,7 @@ stack_t *head = NULL;
 void execute_op(FILE *file, char **argv)
 {
 	char line[1024];
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 
 	while (fgets(line, sizeof(line), file) != NULL)
 	{

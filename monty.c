@@ -26,6 +26,7 @@ void execute_op(FILE *file, stack_t **head)
 			fprintf(stderr, "Error: malloc failed\n");
 			free_grid(*argv);
 			free_list(*head);
+			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 		get_opcode(head, line_number);

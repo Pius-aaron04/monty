@@ -116,7 +116,7 @@ size_t stack_len(stack_t *head)
 
 	for (current = head; current != NULL; current = current->next)
 	{
-		if (i == 2)
+		if (i > 2)
 			break;
 		i++;
 	}

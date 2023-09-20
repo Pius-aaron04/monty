@@ -27,9 +27,10 @@ void get_opcode(stack_t **head, unsigned int line_number)
 		{"pint", pint}, {"swap", swap},
 		{"pop", pop}, {"add", add},
 		{"sub", sub}, {"div", _div},
-		{"mul", mul}, {"mod", mod}};
+		{"mul", mul}, {"mod", mod},
+		{"rotl", rotl}};
 
-	while (l < 10)
+	while (l < 11)
 	{
 		if (strcmp((const char *)opcode_read[0], "push") == 0)
 		{

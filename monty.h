@@ -62,6 +62,11 @@ void swap(stack_t **head, unsigned int line_number);
 void pall(stack_t **head, unsigned int line_number);
 void push(stack_t **head, char *operand, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
+void add(stack_t **head, unsigned int line_number);
+void sub(stack_t **head, unsigned int line_number);
+void mul(stack_t **head, unsigned int line_number);
+void _div(stack_t **head, unsigned int line_number);
+void mod(stack_t **head, unsigned int line_number);
 
 void free_list(stack_t *head);
 char **tokenize(char *str, const char *delim);

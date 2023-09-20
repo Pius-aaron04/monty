@@ -8,7 +8,7 @@
  */
 int _isdigit(char s)
 {
-	if (!(s >= '0' && s <= '9'))
+	if (!((s >= '0' && s <= '9') || (s == '+') || (s == '-')))
 		return (0);
 	return (1);
 }
@@ -23,12 +23,13 @@ void get_opcode(stack_t **head, unsigned int line_number)
 {
 	int l = 0;
 	instruction_t opcodes[] = {
-		{"nop", nop},
-		{"pall", pall},
+		{"nop", nop}, {"pall", pall},
 		{"pint", pint}, {"swap", swap},
-		{"pop", pop}};
+		{"pop", pop}, {"add", add},
+		{"sub", sub}, {"div", _div},
+		{"mul", mul}, {"mod", mod}};
 
-	while (l < 5)
+	while (l < 10)
 	{
 		if (strcmp((const char *)opcode_read[0], "push") == 0)
 		{

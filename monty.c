@@ -5,6 +5,7 @@ char **opcode_read = NULL;
 /**
  * execute_op - reads and execute opcode
  * @file: file  stream
+ * @argv: opcode command
  * @head: pointer to list head
  */
 

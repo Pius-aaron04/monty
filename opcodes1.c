@@ -85,3 +85,31 @@ void stack(stack_t **head, unsigned int line_number)
 	(void)head;
 	(void)line_number;
 }
+
+
+/**
+ * pchar - prints the string starting at the top of the stack
+ * @head: head of the list
+ * @line_number: command line number
+ */
+
+void pchar(stack_t **head, unsigned int line_number)
+{
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((*head)->n >= 0 && (*head)->n <= 127)
+	{
+		putchar((*head)->n);
+		putchar('\n');
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		free_list(*head);
+		free_grid(opcode_read);
+		exit(EXIT_FAILURE);
+	}
+}

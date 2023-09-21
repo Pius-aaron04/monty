@@ -1,15 +1,20 @@
 #include "monty.h"
 
 /**
- * _isdigit - checks leading character of operand read
- * @s: leading character of operand read
+ * _isnumber - checks leading character of operand read
+ * @s: argument read
  * Return: 1 if true else 0
  *
  */
-int _isdigit(char s)
+int _isnumber(char *s)
 {
-	if (!((s >= '0' && s <= '9') || (s == '+') || (s == '-')))
-		return (0);
+	int i;
+
+	for (i = 0; s[i]; i++)
+	{
+		if (!((s[i] >= '0' && s[i] <= '9') || (s[i] == '+') || (s[i] == '-')))
+			return (0);
+	}
 	return (1);
 }
 

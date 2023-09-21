@@ -10,7 +10,7 @@
 
 void push(stack_t **head, char *operand, unsigned int line_number)
 {
-	if (!_isdigit(*operand))
+	if (!_isnumber(operand))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_grid(opcode_read);

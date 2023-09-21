@@ -75,5 +75,5 @@ void stack(stack_t **, unsigned int);
 void free_list(stack_t *head);
 char **tokenize(char *str, const char *delim);
 void free_grid(char **grid);
-int _isdigit(char s);
+int _isnumber(char *s);
 #endif

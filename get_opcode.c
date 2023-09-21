@@ -28,7 +28,7 @@ void get_opcode(stack_t **head, unsigned int line_number)
 		{"pop", pop}, {"add", add},
 		{"sub", sub}, {"div", _div},
 		{"mul", mul}, {"mod", mod},
-		{"rotl", rotl}, {"rotr", rotr}};
+		{"rotl", rotl}, {"rotr", rotr}, {"stack", stack}};
 
 	while (l < 12)
 	{

@@ -73,3 +73,15 @@ void rotr(stack_t **head, unsigned int line_number)
 	}
 	*head = top;
 }
+
+/**
+ * stack - switches data structure order mode
+ * @line_number: command line number
+ * @head: pointer to list head
+*/
+
+void stack(stack_t **head, unsigned int line_number)
+{
+	(void)head;
+	(void)line_number;
+}

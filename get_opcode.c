@@ -30,12 +30,12 @@ void get_opcode(stack_t **head, unsigned int line_number)
 	instruction_t opcodes[] = {
 		{"nop", nop}, {"pall", pall},
 		{"pint", pint}, {"swap", swap},
-		{"pop", pop}, {"add", add},
-		{"sub", sub}, {"div", _div},
+		{"pop", pop}, {"add", add}, {"pstr", pstr},
+		{"sub", sub}, {"div", _div}, {"pchar", pchar},
 		{"mul", mul}, {"mod", mod},
 		{"rotl", rotl}, {"rotr", rotr}, {"stack", stack}};
 
-	while (l < 12)
+	while (l < 15)
 	{
 		if (strcmp((const char *)opcode_read[0], "push") == 0)
 		{

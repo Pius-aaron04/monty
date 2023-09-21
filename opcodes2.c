@@ -19,6 +19,8 @@ void pstr(stack_t **head, unsigned int line_number)
 				break;
 			putchar(node->n);
 		}
+		else
+			break;
 	}
 	putchar('\n');
 }

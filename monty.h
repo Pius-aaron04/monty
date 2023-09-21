@@ -68,6 +68,8 @@ void mul(stack_t **head, unsigned int line_number);
 void _div(stack_t **head, unsigned int line_number);
 void mod(stack_t **head, unsigned int line_number);
 void rotl(stack_t **head, unsigned int line_number);
+void rotr(stack_t **head, unsigned int line_number);
+
 
 void free_list(stack_t *head);
 char **tokenize(char *str, const char *delim);

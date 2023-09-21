@@ -13,7 +13,7 @@ void nop(stack_t **head, unsigned int line_number)
 }
 
 /**
- * rotl - does nothing
+ * rotl - makes the second first and first last
  * @head: head to the list
  * @line_number: command line number
  */
@@ -26,7 +26,7 @@ void rotl(stack_t **head, unsigned int line_number)
 	if ((!*head) || (*head && !(*head)->next))
 		return;
 	/*calls swap intead if it's just two elements*/
-	if(stack_len(*head) == 2)
+	if (stack_len(*head) == 2)
 	{
 		swap(head, line_number);
 		return;
@@ -44,4 +44,32 @@ void rotl(stack_t **head, unsigned int line_number)
 		*head = second;
 		return;
 	}
+}
+
+/**
+ * rotr - rotates the stack
+ * @head: head to the list
+ * @line_number: command line number
+ */
+
+void rotr(stack_t **head, unsigned int line_number)
+{
+	stack_t *top, *temp, *bottom;
+
+	(void)line_number;
+	if (!*head)
+		return;
+	if (!*head || !(*head)->next)
+		return;
+
+	bottom = *head;
+	while (bottom)
+	{
+		top = bottom;
+		temp = bottom->next;
+		bottom->next = bottom->prev;
+		bottom->prev = temp;
+		bottom = temp;
+	}
+	*head = top;
 }

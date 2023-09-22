@@ -27,13 +27,16 @@ void execute_op(FILE *file, stack_t **head)
 			/*cleanup before leaving*/
 			fprintf(stderr, "Error: malloc failed\n");
 			free_grid(*argv);
-			free_list(*head);
+			if (*head)
+				free_list(*head);
 			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 		get_opcode(head, line_number);
 		free_grid(*argv);
 	}
+	if (!*head)
+		return;
 	free_list(*head);
 }
 

@@ -96,7 +96,8 @@ void _swap_node(stack_t **head, unsigned int line_number)
 	first = *head;
 	second = (*head)->next;
 	first->next = second->next;
-	second->next->prev = first;
+	if (second->next)
+		second->next->prev = first;
 	second->prev = NULL;
 	second->next = first;
 	first->prev = second;

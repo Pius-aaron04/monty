@@ -17,11 +17,11 @@ void execute_op(FILE *file, stack_t **head)
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
 		/*Handles multiple white spaces and lines*/
+		line_number++;
 		if (strlen(line) <= 1 || strspn(line, " \t\n")
 				== (size_t)strlen(line) || line[0] == '#')
 			continue;
 		*argv = tokenize(line, DELIM);
-		line_number++;
 		if (*argv == NULL)
 		{
 			/*cleanup before leaving*/

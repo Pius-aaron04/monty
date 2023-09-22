@@ -86,7 +86,7 @@ void _swap_node(stack_t **head, unsigned int line_number)
 	stack_t *first;
 	stack_t *second;
 
-	if (stack_len(*head) < 2)
+	if (!*head || !head || (stack_len(*head) < 2))
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_grid(opcode_read);
